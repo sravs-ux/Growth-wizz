@@ -151,7 +151,7 @@
       width: 100%;
       padding: 12px;
       border: none;
-      background: linear-gradient(90deg, #00bfa5, #ffd166);
+      background: linear-gradient(90deg, #00bfa5, #66ff99);
       color: #000;
       font-size: 16px;
       border-radius: 10px;
@@ -161,7 +161,7 @@
     }
 
     .btn:hover {
-      background: linear-gradient(90deg, #ffd166, #00bfa5);
+      background: linear-gradient(90deg, #66ff99, #00bfa5);
       transform: translateY(-2px);
     }
 
@@ -188,6 +188,7 @@
       color: #ffd166;
       text-align: center;
       letter-spacing: 0.5px;
+      text-shadow: 0 0 5px rgba(255, 209, 102, 0.5);
     }
   </style>
 </head>
@@ -247,6 +248,7 @@
         <p class="signup-text">Already have an account? <a href="#" onclick="showForm('login')">Login</a></p>
       </form>
     </div>
+
     <p class="tagline">Grow your startup, Digitally with us</p>
   </div>
 
@@ -271,6 +273,7 @@
     }
   </script>
 
+  <!-- JS for login & signup behavior -->
   <script>
     // Login redirection
     document.getElementById('login-form').addEventListener('submit', function(e) {
@@ -292,7 +295,8 @@
       alert('Signup successful! Please login now.');
     });
   </script>
-  
 </body>
 </html>
+
+
 
