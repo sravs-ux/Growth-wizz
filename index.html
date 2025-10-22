@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login & Signup Page</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #0d1b2a 0%, #000814 100%);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: #e0e0e0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 420px;
+      padding: 20px;
+    }
+
+    .box {
+      background: rgba(13, 27, 42, 0.85);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(0, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 8px 30px rgba(0, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 40px rgba(0, 255, 255, 0.25);
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .logo img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+
+    .logo h2 {
+      color: #00bfa5;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .logo p {
+      color: #d1d5db;
+      font-size: 14px;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 25px;
+    }
+
+    .tabs button {
+      flex: 1;
+      padding: 10px 0;
+      border: none;
+      background: none;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 16px;
+      color: #aaa;
+      border-bottom: 2px solid transparent;
+      transition: 0.3s;
+    }
+
+    .tabs button.active {
+      color: #00ffc3;
+      border-bottom: 2px solid #00ffc3;
+    }
+
+    form {
+      display: none;
+      flex-direction: column;
+    }
+
+    form.active {
+      display: flex;
+    }
+
+    .input-group {
+      margin-bottom: 18px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 6px;
+      color: #cfd8dc;
+      font-weight: 500;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #264653;
+      border-radius: 10px;
+      background: #0d1b2a;
+      color: #fff;
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .input-group input:focus {
+      border-color: #00ffc3;
+      box-shadow: 0 0 6px rgba(0, 255, 195, 0.3);
+    }
+
+    .options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .options a {
+      color: #ffd166;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .options a:hover {
+      text-decoration: underline;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background: linear-gradient(90deg, #00bfa5, #ffd166);
+      color: #000;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: linear-gradient(90deg, #ffd166, #00bfa5);
+      transform: translateY(-2px);
+    }
+
+    .signup-text {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+      color: #d1d5db;
+    }
+
+    .signup-text a {
+      color: #00ffc3;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .signup-text a:hover {
+      text-decoration: underline;
+    }
+
+    .tagline {
+      margin-top: 25px;
+      font-size: 20px;
+      color: #ffd166;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box">
+      <!-- Logo -->
+      <div class="logo">
+        <img src="logonew - Copy.jpg" alt="Brand Logo" />
+        <h2>Welcome to Growth Wiz</h2>
+        <p>Login or Signup to continue</p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <button class="tab-btn active" onclick="showForm('login')">Login</button>
+        <button class="tab-btn" onclick="showForm('signup')">Signup</button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="login-form" class="active">
+        <div class="input-group">
+          <label for="login-email">Email</label>
+          <input type="email" id="login-email" placeholder="Enter your email" required />
+        </div>
+        <div class="input-group">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" placeholder="Enter your password" required />
+        </div>
+        <div class="options">
+          <label><input type="checkbox" /> Remember Me</label>
+          <a href="#">Forgot Password?</a>
+        </div>
+        <button type="submit" class="btn">Login</button>
+        <p class="signup-text">Don’t have an account? <a href="#" onclick="showForm('signup')">Sign up</a></p>
+      </form>
+
+      <!-- Signup Form -->
+      <form id="signup-form">
+        <div class="input-group">
+          <label for="signup-name">Full Name</label>
+          <input type="text" id="signup-name" placeholder="Enter your full name" required />
+        </div>
+        <div class="input-group">
+          <label for="signup-email">Email</label>
+          <input type="email" id="signup-email" placeholder="Enter your email" required />
+        </div>
+        <div class="input-group">
+          <label for="signup-password">Password</label>
+          <input type="password" id="signup-password" placeholder="Create a password" required />
+        </div>
+        <div class="input-group">
+          <label for="signup-confirm">Confirm Password</label>
+          <input type="password" id="signup-confirm" placeholder="Confirm password" required />
+        </div>
+        <button type="submit" class="btn">Signup</button>
+        <p class="signup-text">Already have an account? <a href="#" onclick="showForm('login')">Login</a></p>
+      </form>
+    </div>
+    <p class="tagline">Grow your startup, Digitally with us</p>
+  </div>
+
+  <!-- JS for toggling forms -->
+  <script>
+    function showForm(form) {
+      const loginForm = document.getElementById('login-form');
+      const signupForm = document.getElementById('signup-form');
+      const buttons = document.querySelectorAll('.tab-btn');
+
+      if (form === 'login') {
+        loginForm.classList.add('active');
+        signupForm.classList.remove('active');
+        buttons[0].classList.add('active');
+        buttons[1].classList.remove('active');
+      } else {
+        loginForm.classList.remove('active');
+        signupForm.classList.add('active');
+        buttons[0].classList.remove('active');
+        buttons[1].classList.add('active');
+      }
+    }
+  </script>
+
+  <script>
+    // Login redirection
+    document.getElementById('login-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      window.location.href = 'business.html';
+    });
+
+    // Signup redirection
+    document.getElementById('signup-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      window.location.href = 'welcome.html';
+    });
+  </script>
+</body>
+</html>

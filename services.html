@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Services – Growth Wiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #0c0f1a;
+      margin: 0;
+      padding: 0;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 800px;
+      width: 90%;
+      background: #1c1f2b;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 255, 195, 0.05);
+      margin-top: 50px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #00ffd5;
+      margin-bottom: 10px;
+    }
+
+    p {
+      text-align: center;
+      color: #cccccc;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+
+    .service {
+      background: #2a2d3c;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      border: 1px solid #2f3240;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    .service.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .service h2 {
+      margin: 0;
+      color: #ffaa00;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .toggle-icon {
+      font-size: 18px;
+      transition: transform 0.3s;
+    }
+
+    .service.open .toggle-icon {
+      transform: rotate(180deg);
+    }
+
+    .service-content {
+      display: none;
+      margin-top: 10px;
+      color: #cccccc;
+      font-size: 14px;
+    }
+
+    .service.open .service-content {
+      display: block;
+    }
+
+    .price {
+      margin-top: 8px;
+      color: #cccccc;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .subscribe-btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: linear-gradient(to right, #00ffd5, #ffaa00);
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: transform 0.2s ease;
+    }
+
+    .subscribe-btn:hover {
+      transform: scale(1.04);
+    }
+
+    .back {
+      display: block;
+      text-align: center;
+      margin-top: 30px;
+      text-decoration: none;
+      color: #ffaa00;
+      font-size: 14px;
+    }
+
+    .back:hover {
+      text-decoration: underline;
+    }
+
+    .tagline {
+      text-align: center;
+      color: #ffaa00;
+      font-size: 20px;
+      margin-top: 15px;
+    }
+
+    /* Subscription popup */
+    .popup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .popup.active {
+      display: flex;
+    }
+
+    .popup-content {
+      background: #1c1f2b;
+      padding: 25px;
+      border-radius: 10px;
+      max-width: 350px;
+      width: 90%;
+      box-shadow: 0 0 15px rgba(0, 255, 195, 0.1);
+      text-align: center;
+    }
+
+    .popup-content h3 {
+      margin-bottom: 15px;
+      color: #00ffd5;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      font-family: inherit;
+    }
+
+    .close-popup {
+      margin-top: 10px;
+      background: none;
+      color: #ffaa00;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    /* Footer section */
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      font-size: 13px;
+      color: #cccccc;
+    }
+
+    footer a {
+      color: #00ffd5;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media screen and (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Available Services</h1>
+    <p>Choose the service that suits your business needs</p>
+
+    <!-- Service Cards -->
+    <div class="service">
+      <h2>1. Social Media Management <span class="toggle-icon">▼</span></h2>
+      <div class="service-content">
+        <p class="price">Subscription: ₹300 / weekly | ₹3000 / monthly | ₹10,000 / yearly</p>
+        <p>We handle content, posting, analytics & growth strategies for your social media presence.</p>
+        <button class="subscribe-btn">Subscribe</button>
+      </div>
+    </div>
+
+    <div class="service">
+      <h2>2. Influencer Collaborations & Promotional Campaigns <span class="toggle-icon">▼</span></h2>
+      <div class="service-content">
+        <p>We connect you with influencers and run ad campaigns to promote your brand efficiently.</p>
+        <button class="subscribe-btn">Subscribe</button>
+      </div>
+    </div>
+
+    <div class="service">
+      <h2>3. Website & App Development <span class="toggle-icon">▼</span></h2>
+      <div class="service-content">
+        <p>Get high-performing websites and apps built to scale your online business.</p>
+        <button class="subscribe-btn">Subscribe</button>
+      </div>
+    </div>
+
+    <div class="service">
+      <h2>4. Digital Marketing Analysis <span class="toggle-icon">▼</span></h2>
+      <div class="service-content">
+        <p>We audit and optimize your marketing strategies to boost ROI and growth metrics.</p>
+        <button class="subscribe-btn">Subscribe</button>
+      </div>
+    </div>
+
+    <div class="service">
+      <h2>5. Advertising & Campaign Creation <span class="toggle-icon">▼</span></h2>
+      <div class="service-content">
+        <p>Create engaging ad creatives and run targeted campaigns that drive conversions.</p>
+        <button class="subscribe-btn">Subscribe</button>
+      </div>
+    </div>
+
+    <div class="service">
+      <h2>6. Complete Marketing Package (All Services) <span class="toggle-icon">▼</span></h2>
+      <div class="service-content">
+        <p>Get everything in one plan—social media, ads, development, and analysis combined.</p>
+        <button class="subscribe-btn">Subscribe</button>
+      </div>
+    </div>
+
+    <a class="back" href="business.html">← Back to Business Details</a>
+  </div>
+
+  <div class="tagline">Grow your startup, Digitally with us</div>
+
+  <!-- Footer Section -->
+  <footer>
+    <p><strong>Growth Wiz</strong> © 2025</p>
+    <p>📞 <a href="tel:+911234567890">+91 12345 67890</a> | 📸 
+      <a href="https://instagram.com/growthwiz" target="_blank">@growthwiz</a>
+    </p>
+  </footer>
+
+  <!-- Subscription Popup -->
+  <div class="popup" id="subscriptionPopup">
+    <div class="popup-content">
+      <h3>Subscribe Now</h3>
+      <input type="email" placeholder="Enter your email" required/>
+      <select>
+        <option>Select Payment Option</option>
+        <option>Credit/Debit Card</option>
+        <option>UPI</option>
+        <option>PayPal</option>
+      </select>
+      <button class="subscribe-btn">Proceed to Payment</button>
+      <button class="close-popup">Cancel</button>
+    </div>
+  </div>
+
+  <script>
+    // Collapsible Services
+    document.querySelectorAll(".service h2").forEach(header => {
+      header.addEventListener("click", () => {
+        header.parentElement.classList.toggle("open");
+      });
+    });
+
+    // Animate on Scroll
+    const services = document.querySelectorAll(".service");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    services.forEach(service => observer.observe(service));
+
+    // Popup Logic
+    const popup = document.getElementById("subscriptionPopup");
+    const subscribeButtons = document.querySelectorAll(".subscribe-btn");
+    const closePopup = document.querySelector(".close-popup");
+
+    subscribeButtons.forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        popup.classList.add("active");
+      });
+    });
+
+    closePopup.addEventListener("click", () => {
+      popup.classList.remove("active");
+    });
+
+    popup.addEventListener("click", (e) => {
+      if (e.target === popup) popup.classList.remove("active");
+    });
+  </script>
+</body>
+</html>
