@@ -278,11 +278,21 @@
       window.location.href = 'business.html';
     });
 
-    // Signup redirection
+    // Signup behavior: show login form after signup
     document.getElementById('signup-form').addEventListener('submit', function(e) {
       e.preventDefault();
-      window.location.href = 'welcome.html';
+      // Show login form
+      showForm('login');
+      // Clear signup fields
+      document.getElementById('signup-name').value = '';
+      document.getElementById('signup-email').value = '';
+      document.getElementById('signup-password').value = '';
+      document.getElementById('signup-confirm').value = '';
+      // Notify user
+      alert('Signup successful! Please login now.');
     });
   </script>
+  
 </body>
 </html>
+
