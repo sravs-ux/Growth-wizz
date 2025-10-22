@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+in index file <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -151,7 +151,7 @@
       width: 100%;
       padding: 12px;
       border: none;
-      background: linear-gradient(90deg, #00bfa5, #66ff99);
+      background: linear-gradient(90deg, #00bfa5, #ffd166);
       color: #000;
       font-size: 16px;
       border-radius: 10px;
@@ -161,7 +161,7 @@
     }
 
     .btn:hover {
-      background: linear-gradient(90deg, #66ff99, #00bfa5);
+      background: linear-gradient(90deg, #ffd166, #00bfa5);
       transform: translateY(-2px);
     }
 
@@ -188,7 +188,6 @@
       color: #ffd166;
       text-align: center;
       letter-spacing: 0.5px;
-      text-shadow: 0 0 5px rgba(255, 209, 102, 0.5);
     }
   </style>
 </head>
@@ -248,7 +247,6 @@
         <p class="signup-text">Already have an account? <a href="#" onclick="showForm('login')">Login</a></p>
       </form>
     </div>
-
     <p class="tagline">Grow your startup, Digitally with us</p>
   </div>
 
@@ -273,7 +271,6 @@
     }
   </script>
 
-  <!-- JS for login & signup behavior -->
   <script>
     // Login redirection
     document.getElementById('login-form').addEventListener('submit', function(e) {
@@ -281,22 +278,32 @@
       window.location.href = 'business.html';
     });
 
-    // Signup behavior: show login form after signup
     document.getElementById('signup-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      // Show login form
-      showForm('login');
-      // Clear signup fields
-      document.getElementById('signup-name').value = '';
-      document.getElementById('signup-email').value = '';
-      document.getElementById('signup-password').value = '';
-      document.getElementById('signup-confirm').value = '';
-      // Notify user
-      alert('Signup successful! Please login now.');
+    e.preventDefault();
+
+    const password = document.getElementById('signup-password').value;
+    const confirmPassword = document.getElementById('signup-confirm').value;
+
+    if(password !== confirmPassword) {
+      alert('Passwords do not match. Please enter the same password.');
+      return; // stop submission if passwords don't match
+    }
+
+    // Show login form if passwords match
+    showForm('login');
+
+    // Clear signup fields
+    document.getElementById('signup-name').value = '';
+    document.getElementById('signup-email').value = '';
+    document.getElementById('signup-password').value = '';
+    document.getElementById('signup-confirm').value = '';
+
+    alert('Signup successful! Please login now.');
     });
   </script>
 </body>
-</html>
+</html> 
+
 
 
 
